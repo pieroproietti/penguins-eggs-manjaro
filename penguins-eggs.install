@@ -1,0 +1,39 @@
+post_install() {
+
+	# Symlink at the executable
+	ln -sf /usr/lib/penguins-eggs/bin/run /usr/bin/eggs
+
+	# checking dir completions
+    if [ ! -d "/usr/share/bash-completion/completions/" ]; then
+    	mkdir /usr/share/bash-completion/completions/ -p
+    fi
+
+	# Adding bash-completion configuration eggs
+    if [ -f "/usr/lib/penguins-eggs/scripts/eggs.bash" ]; then
+    	cp /usr/lib/penguins-eggs/scripts/eggs.bash /usr/share/bash-completion/completions/
+    fi
+
+    # checking dir manPage
+    if [ ! -d "/usr/share/man/man1" ]; then
+        mkdir /usr/share/man/man1 -p
+    fi
+
+	# 
+    if [ -f "/usr/lib/penguins-eggs/manpages/doc/man/eggs.roll.gz" ]; then
+    	cp /usr/lib/penguins-eggs/manpages/doc/man/eggs.roll.gz /usr/share/man/man1/eggs.1.gz
+    fi
+
+}
+
+post_upgrade() {
+
+	post_install
+
+}
+
+pre_remove() {
+	
+	if [ -d "/etc/penguins-eggs.d" ]
+		rm -Rf /etc/penguins-eggs.d
+	fi
+}
