@@ -2,7 +2,7 @@
 
 pkgname=penguins-eggs
 pkgver=9.0.3
-pkgrel=1
+pkgrel=2
 _commit='71e32f2b87e4f8657b023073bf92d7c454a58257'
 pkgdesc="A terminal utility, in active development, which allows you to remaster your system and redistribute it as an ISO image, on a USB stick or through the network via PXE remote boot"
 arch=('x86_64')

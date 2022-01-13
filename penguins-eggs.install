@@ -33,7 +33,7 @@ post_upgrade() {
 
 pre_remove() {
 	
-	if [ -d "/etc/penguins-eggs.d" ]
+	if [ -d "/etc/penguins-eggs.d" ]; then
 		rm -Rf /etc/penguins-eggs.d
 	fi
 }
