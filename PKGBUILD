@@ -3,7 +3,7 @@
 pkgname=penguins-eggs
 pkgver=9.0.5
 pkgrel=1
-_commit='8e6e50898487ab2caa3fa9b25d04f3ccdcd122b9'
+_commit='e31644627f62a5e428e96df4cd0ecc498c685ee0'
 pkgdesc="A terminal utility, in active development, which allows you to remaster your system and redistribute it as an ISO image, on a USB stick or through the network via PXE remote boot"
 arch=('x86_64')
 url='https://penguins-eggs.net'
@@ -16,7 +16,7 @@ replaces=('penguins-eggs-dev')
 options=('!strip')
 install=$pkgname.install
 source=("$_url/archive/$_commit.tar.gz")
-sha256sums=('ec552cc0f729d3bc6848d95355117c9a932beb68279e215aaf4ce98e3799a1be')
+sha256sums=('1c2b00929d59afd5f177a53e3e0be68f25c61cce3b42d8db0e0bd83fa6bffd4c')
 
 prepare() { 
 
