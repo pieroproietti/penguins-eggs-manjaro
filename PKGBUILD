@@ -1,8 +1,8 @@
 # Maintainer: Stefano Capitani <stefano_at_manjaro_org>
 
 pkgname=penguins-eggs
-pkgver=9.0.3
-pkgrel=2
+pkgver=9.0.5
+pkgrel=1
 _commit='8e6e50898487ab2caa3fa9b25d04f3ccdcd122b9'
 pkgdesc="A terminal utility, in active development, which allows you to remaster your system and redistribute it as an ISO image, on a USB stick or through the network via PXE remote boot"
 arch=('x86_64')
