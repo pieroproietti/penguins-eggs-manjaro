@@ -1,9 +1,9 @@
 # Maintainer: Stefano Capitani <stefano_at_manjaro_org>
 
 pkgname=penguins-eggs
-pkgver=9.0.13
+pkgver=9.0.19
 pkgrel=1
-_commit='50ee2a091efc762b1526988f4d6e7dd8dd04f8b0'
+_commit='e1fa880045a79eb801f8bfc67797e22263bca9e1'
 pkgdesc="A terminal utility, in active development, which allows you to remaster your system and redistribute it as an ISO image, on a USB stick or through the network via PXE remote boot"
 arch=('x86_64')
 url='https://penguins-eggs.net'
@@ -16,7 +16,7 @@ replaces=('penguins-eggs-dev')
 options=('!strip')
 install=$pkgname.install
 source=("$_url/archive/$_commit.tar.gz")
-sha256sums=('3dc0f5249ddb258939112ced8f64b18425f29458657e6a6886e29d780ecae70a')
+sha256sums=('2f56cce9de891d1040aa6c8639358c706d1a80c6e2bb3389a03d244fee25cd6d')
 
 prepare() { 
 
