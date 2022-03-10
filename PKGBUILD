@@ -1,9 +1,9 @@
 # Maintainer: Stefano Capitani <stefano_at_manjaro_org>
 
 pkgname=penguins-eggs
-pkgver=9.0.31
+pkgver=9.0.35
 pkgrel=1
-_commit='b1da07445266c27f69e00bc3e8e6127135b65549'
+_commit='c629ccd766e6f6e1495d9d1c6f28f3309f9b019c'
 pkgdesc="A terminal utility, in active development, which allows you to remaster your system and redistribute it as an ISO image, on a USB stick or through the network via PXE remote boot"
 arch=('x86_64')
 url='https://penguins-eggs.net'
@@ -16,7 +16,7 @@ replaces=('penguins-eggs-dev')
 options=('!strip')
 install=$pkgname.install
 source=("$_url/archive/$_commit.tar.gz")
-sha256sums=('d63ad504879075e2dae256b3715be7fcdb8ead993aa1ece10a297b65229df020')
+sha256sums=('4c0a2e47b8f57f33fd67bf84e389f83845f69e9df52a678e363efcff7812f3f5')
 
 prepare() { 
 
@@ -27,7 +27,7 @@ prepare() {
 pkgver() {
 
     cd ${srcdir}/${pkgname}
-	echo "$(grep 'version' package.json | awk 'NR==1 {print $2 }' | awk -F '"' '{print $2}')"
+	grep 'version' package.json | awk 'NR==1 {print $2 }' | awk -F '"' '{print $2}'
 	
 }
 
