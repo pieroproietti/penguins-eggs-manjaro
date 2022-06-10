@@ -26,8 +26,17 @@ in package.json:
 I'm not expert at all in manjaro, so I have a bit difficult to understand "the way", with time I hope to learn a bit.
 
 
-# make and install
-Just:
+# build and install penguins-eggs on manjaro
+Create a directory to build penguins-eggs:
+```
+mkdir penguins-eggs
+cd penguins-eggs
+wget https://raw.githubusercontent.com/pieroproietti/penguins-eggs-manjaro/main/PKGBUILD
+makepkg -si
+```
+
+Just download it from [penguins-eggs PKBUID](https://raw.githubusercontent.com/pieroproietti/penguins-eggs-manjaro/main/PKGBUILD) 
+
 
 ```makepkg -si```
 
