@@ -26,7 +26,8 @@ in package.json:
 I'm not expert at all in manjaro, so I have a bit difficult to understand "the way", with time I hope to learn a bit.
 
 
-# build and install penguins-eggs on manjaro
+# build and install penguins-eggs on manjaro OS
+
 Create a directory to build penguins-eggs:
 ```
 mkdir penguins-eggs
