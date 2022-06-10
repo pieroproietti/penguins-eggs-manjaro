@@ -49,3 +49,29 @@ pkgver=9.1.29
 pkgrel=1
 _commit='29f20ce50a8fcdb855a70a40603a7c8b40163421'
 ```
+
+# Dipendenze
+
+Mi sembrano un po' troppe, in particolare snapd?
+
+* apparmor-3.0.4-1
+* calamares-tools-0.1.0-1
+* libburn-1.5.4-1
+* libisoburn-1.5.4-2 *
+* libisofs-1.5.4-1  libuv-1.43.0-1
+* manjaro-iso-profiles-base-17.1.12-1
+* manjaro-tools-base-git-r2996.d3ab091-1
+* manjaro-tools-yaml-git-r2996.d3ab091-1
+* mktorrent-1.1-4
+* ruby-3.0.4-1
+* ruby-irb-1.4.1-1
+* ruby-kwalify-0.7.2-3
+* ruby-reline-0.3.1-1
+* rubygems-3.3.8-1
+* snapd-2.55.5-1 
+* arch-install-scripts-24-2  
+* erofs-utils-1.4-2
+* manjaro-tools-iso-git-r2996.d3ab091-1
+* mtools-1:4.0.39-1
+* nodejs-18.2.0-1
+* syslinux-6.04.pre2.r11.gbf6db5b4-3
