@@ -9,8 +9,10 @@ pkgdesc="A console utility that allows you to remaster your system and redistrib
 arch=('x86_64')
 url="https://penguins-eggs.net"
 license=('GPL2')
+# I see here something who bring 
 depends=('arch-install-scripts' 'bash-completion' 'calamares' 'erofs-utils' 'manjaro-tools-iso' 'mtools' 'nodejs' 'python' 'syslinux' 'xdg-utils')
 makedepends=('git' 'pnpm')
+# Moved to dependencies, it's too boring to not have!
 # optdepends=('bash-completion')
 conflicts=('penguins-eggs-dev')
 replaces=('penguins-eggs-dev')
@@ -38,9 +40,8 @@ package() {
 	install -d "${pkgdir}/usr/lib/${pkgname}"
 
 	# before, our mistake we copied all
-	# cp -r ./* "${pkgdir}/usr/lib/${pkgname}/"
-
 	# now, just that we need specified in package.json
+	# plus ./mkinitcpio for manjaro
 	cp -r ./addons "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./assets "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./bin "${pkgdir}/usr/lib/${pkgname}/"
@@ -50,7 +51,6 @@ package() {
 	cp -r ./manpages "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./mkinitcpio "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./node_modules "${pkgdir}/usr/lib/${pkgname}/"
-	# cp -r ./oclif.manifest.json "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./package.json "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./pnpm-lock.yaml "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./README.md "${pkgdir}/usr/lib/${pkgname}/"
