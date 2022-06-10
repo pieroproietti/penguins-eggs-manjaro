@@ -36,7 +36,7 @@ package() {
 
 	# Copy the app files & dependency modules to package directory
 	install -d "${pkgdir}/usr/lib/${pkgname}"
-	cp -r ./* "${pkgdir}/usr/lib/${pkgname}/"
+	# cp -r ./* "${pkgdir}/usr/lib/${pkgname}/" # errato
 
 	# Symlink executable
 	install -d "${pkgdir}/usr/bin"
