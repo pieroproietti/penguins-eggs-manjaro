@@ -1,9 +1,9 @@
 # Maintainer: Stefano Capitani <stefano_at_manjaro_org>
 
-pkgname=penguins-eggs
-pkgver=9.1.29
-pkgrel=1
-_commit='29f20ce50a8fcdb855a70a40603a7c8b40163421'
+pkgname=eggs
+	pkgver=9.1.30
+	pkgrel=1
+	_commit='5fc4e767fb254755b84c35dd55dc62bf13553d67'
 pkgdesc="A console utility that allows you to remaster your system and redistribute it as ISO images or via remote boot PXE."
 arch=('x86_64')
 url="https://penguins-eggs.net"
@@ -11,8 +11,8 @@ license=('GPL2')
 depends=('manjaro-tools-iso' 'nodejs' 'python' 'xdg-utils' 'arch-install-scripts' 'erofs-utils' 'mtools' 'syslinux')
 makedepends=('git' 'pnpm')
 optdepends=('bash-completion')
-conflicts=('penguins-eggs-dev')
-replaces=('penguins-eggs-dev')
+conflicts=('penguins-eggs-dev', 'penguins-eggs')
+replaces=('penguins-eggs-dev', 'penguins-eggs')
 options=('!strip')
 source=("git+https://github.com/pieroproietti/penguins-eggs.git#commit=${_commit}")
 sha256sums=('SKIP')
