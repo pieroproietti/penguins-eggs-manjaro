@@ -36,7 +36,21 @@ package() {
 
 	# Copy the app files & dependency modules to package directory
 	install -d "${pkgdir}/usr/lib/${pkgname}"
-	# cp -r ./* "${pkgdir}/usr/lib/${pkgname}/" # errato
+
+	# cp -r ./* "${pkgdir}/usr/lib/${pkgname}/"
+	cp -r ./addons "${pkgdir}/usr/lib/${pkgname}/"
+	cp -r ./assets "${pkgdir}/usr/lib/${pkgname}/"
+	cp -r ./bin "${pkgdir}/usr/lib/${pkgname}/"
+	cp -r ./conf "${pkgdir}/usr/lib/${pkgname}/"
+	cp -r ./lib "${pkgdir}/usr/lib/${pkgname}/"
+	cp -r ./LICENSE "${pkgdir}/usr/lib/${pkgname}/"
+	cp -r ./manpages "${pkgdir}/usr/lib/${pkgname}/"
+	cp -r ./node_modules "${pkgdir}/usr/lib/${pkgname}/"
+	cp -r ./oclif.manifest.json "${pkgdir}/usr/lib/${pkgname}/"
+	cp -r ./package.json "${pkgdir}/usr/lib/${pkgname}/"
+	cp -r ./pnpm-lock.yaml "${pkgdir}/usr/lib/${pkgname}/"
+	cp -r ./README.md "${pkgdir}/usr/lib/${pkgname}/"
+	cp -r ./scripts "${pkgdir}/usr/lib/${pkgname}/"
 
 	# Symlink executable
 	install -d "${pkgdir}/usr/bin"
