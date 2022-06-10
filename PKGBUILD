@@ -1,5 +1,6 @@
 # Maintainer: Stefano Capitani <stefano_at_manjaro_org>
 
+pkgsrcnane=penguins-eggs
 pkgname=eggs
 	pkgver=9.1.30
 	pkgrel=1
@@ -11,14 +12,14 @@ license=('GPL2')
 depends=('manjaro-tools-iso' 'nodejs' 'python' 'xdg-utils' 'arch-install-scripts' 'erofs-utils' 'mtools' 'syslinux')
 makedepends=('git' 'pnpm')
 optdepends=('bash-completion')
-conflicts=('penguins-eggs-dev', 'penguins-eggs')
-replaces=('penguins-eggs-dev', 'penguins-eggs')
+conflicts=('penguins-eggs-dev' 'penguins-eggs')
+replaces=('penguins-eggs-dev' 'penguins-eggs')
 options=('!strip')
 source=("git+https://github.com/pieroproietti/penguins-eggs.git#commit=${_commit}")
 sha256sums=('SKIP')
 
 pkgver() {
-	cd ${srcdir}/${pkgname}
+	cd ${srcdir}/${pkgsrcnane}
 	grep 'version' package.json | awk 'NR==1 {print $2 }' | awk -F '"' '{print $2}'
 }
 
