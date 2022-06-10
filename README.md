@@ -1,7 +1,27 @@
 # penguins-eggs-manjaro
 
-This is a fork of [penguins-eggs](https://gitlab.manjaro.org/packages/community/penguins-eggs), created from the author of penguins-eggs
-to investigate about the problems of eggs manjaro package.
+This is a fork of [penguins-eggs PKGBUILD](https://gitlab.manjaro.org/packages/community/penguins-eggs), created from the author 
+to investigate about the problems of the package eggs on manjaro.
+
+Before - my mistake - we copy the entire sources on /usr/lib/penguins-eggs, when we need to copy just files specified
+in package.json:
+
+```
+...
+
+ "files": [
+        "/assets",
+        "/addons",
+        "/bin",
+        "/conf",
+        "/lib",
+        "/manpages",
+        "/oclif.manifest.json",
+        "/scripts",
+        "/templates",
+        "/wardrobe.d"
+    ],
+```
 
 I'm not expert at all in manjaro, so I have a bit difficult to understand "the way", with time I hope to learn a bit.
 
