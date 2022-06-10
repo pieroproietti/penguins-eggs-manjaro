@@ -18,8 +18,7 @@ in package.json:
         "/manpages",
         "/oclif.manifest.json",
         "/scripts",
-        "/templates",
-        "/wardrobe.d"
+        "/templates"
     ],
 ```
 
