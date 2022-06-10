@@ -37,7 +37,10 @@ package() {
 	# Copy the app files & dependency modules to package directory
 	install -d "${pkgdir}/usr/lib/${pkgname}"
 
+	# before, our mistake we copied all
 	# cp -r ./* "${pkgdir}/usr/lib/${pkgname}/"
+
+	# now, just that we need specified in package.json
 	cp -r ./addons "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./assets "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./bin "${pkgdir}/usr/lib/${pkgname}/"
