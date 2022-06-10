@@ -48,6 +48,7 @@ package() {
 	cp -r ./lib "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./LICENSE "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./manpages "${pkgdir}/usr/lib/${pkgname}/"
+	cp -r ./mkinitcpio "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./node_modules "${pkgdir}/usr/lib/${pkgname}/"
 	# cp -r ./oclif.manifest.json "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./package.json "${pkgdir}/usr/lib/${pkgname}/"
