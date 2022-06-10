@@ -1,10 +1,10 @@
 # Maintainer: Stefano Capitani <stefano_at_manjaro_org>
 
-pkgsrcnane=penguins-eggs
-pkgname=eggs
-	pkgver=9.1.30
-	pkgrel=1
-	_commit='5fc4e767fb254755b84c35dd55dc62bf13553d67'
+
+pkgname=penguins-eggs
+pkgver=9.1.30
+pkgrel=1
+_commit='5fc4e767fb254755b84c35dd55dc62bf13553d67'
 pkgdesc="A console utility that allows you to remaster your system and redistribute it as ISO images or via remote boot PXE."
 arch=('x86_64')
 url="https://penguins-eggs.net"
@@ -12,14 +12,14 @@ license=('GPL2')
 depends=('manjaro-tools-iso' 'nodejs' 'python' 'xdg-utils' 'arch-install-scripts' 'erofs-utils' 'mtools' 'syslinux')
 makedepends=('git' 'pnpm')
 optdepends=('bash-completion')
-conflicts=('penguins-eggs-dev' 'penguins-eggs')
-replaces=('penguins-eggs-dev' 'penguins-eggs')
+conflicts=('penguins-eggs-dev')
+replaces=('penguins-eggs-dev')
 options=('!strip')
 source=("git+https://github.com/pieroproietti/penguins-eggs.git#commit=${_commit}")
 sha256sums=('SKIP')
 
 pkgver() {
-	cd ${srcdir}/${pkgsrcnane}
+	cd ${srcdir}/${pkgname}
 	grep 'version' package.json | awk 'NR==1 {print $2 }' | awk -F '"' '{print $2}'
 }
 
@@ -50,4 +50,5 @@ package() {
 	install -d "${pkgdir}/usr/share/man/man1"
 	ln -s "/usr/lib/${pkgname}/manpages/doc/man/eggs.roll.gz" "$pkgdir/usr/share/man/man1/eggs.1.gz"
 }
+
 
