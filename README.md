@@ -25,9 +25,10 @@ in package.json:
 I'm not expert at all in manjaro, so I have a bit difficult to understand "the way", with time I hope to learn a bit.
 
 
-# build and install penguins-eggs on manjaro OS
+# build and install (users)
 
-Create a directory to build penguins-eggs:
+Copy and paste follow instructions:
+
 ```
 mkdir penguins-eggs
 cd penguins-eggs
@@ -35,13 +36,10 @@ wget https://raw.githubusercontent.com/pieroproietti/penguins-eggs-manjaro/main/
 makepkg -si
 ```
 
-Just download it from [penguins-eggs PKBUID](https://raw.githubusercontent.com/pieroproietti/penguins-eggs-manjaro/main/PKGBUILD) 
+Or: create a directory - for example ```try-penguins-eggs``` - and just download the PKGBUILD from [penguins-eggs PKBUID](https://raw.githubusercontent.com/pieroproietti/penguins-eggs-manjaro/main/PKGBUILD) with your browser. After that ```cd  try-penguins-eggs```, finally: ```makepkg -si```
 
 
-```makepkg -si```
-
-
-# release
+# New release (memo for me)
 To create a new release, just edit followig lines in PKBUILD, essentiallt pkgver and _commit.
 
 ```
@@ -50,9 +48,10 @@ pkgrel=1
 _commit='29f20ce50a8fcdb855a70a40603a7c8b40163421'
 ```
 
-# Dipendenze
+# Dependencies problem
 
-Mi sembrano un po' troppe, in particolare snapd?
+I'm getting a lot of dependencies, particulary surprised from snapd, and at the moment I don't understand why.
+
 
 * apparmor-3.0.4-1
 * calamares-tools-0.1.0-1
