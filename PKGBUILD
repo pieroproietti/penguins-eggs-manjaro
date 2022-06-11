@@ -5,12 +5,12 @@ pkgname=penguins-eggs
 pkgver=9.1.30
 pkgrel=1
 _commit='5fc4e767fb254755b84c35dd55dc62bf13553d67'
-pkgdesc="A console utility that allows you to remaster your system and redistribute it as ISO images or via remote boot PXE."
+pkgdesc="Console utility to remaster your system and redsistribute it and more."
 arch=('x86_64')
 url="https://penguins-eggs.net"
 license=('GPL2')
 # I see here something who bring 
-depends=('arch-install-scripts' 'erofs-utils' 'manjaro-tools-iso' 'mtools' 'nodejs' 'python' 'syslinux' 'xdg-utils')
+depends=('arch-install-scripts' 'erofs-utils' 'manjaro-tools-iso' 'mtools' 'nodejs' 'npm' 'python' 'syslinux' 'xdg-utils')
 makedepends=('git' 'pnpm')
 
 # There is a way makepkg -si ask to install them? 
@@ -43,6 +43,10 @@ package() {
 	# before, our mistake we copied all
 	# now, just that we need specified in package.json
 	# plus ./mkinitcpio for manjaro
+	# NOTE: npm i "${pkgname}" -g
+	# this command will do the same and install eggs 
+	# under /usr/lib/node_modules/penguins-eggs/
+
 	cp -r ./addons "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./assets "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./bin "${pkgdir}/usr/lib/${pkgname}/"
