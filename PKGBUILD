@@ -6,7 +6,7 @@ pkgver=9.1.30
 pkgrel=1
 #_commit='1a821b62f5e4968fb8da8d13fe100426df1ef27c' # working old calamares definition
 #_commit='042336d0ddc901a1feb403c9c88b657ca91385ff' # tryed manjaro calamares conf
-_commit='adb85ffab7e1eff1744083713916daf5f00228a6' # scared and back to mine... :-o
+s_commit='adb85ffab7e1eff1744083713916daf5f00228a6'
 
 pkgdesc="Console utility to remaster your system and redsistribute it and more."
 arch=('x86_64')
