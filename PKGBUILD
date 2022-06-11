@@ -40,13 +40,12 @@ package() {
 	# Copy the app files & dependency modules to package directory
 	install -d "${pkgdir}/usr/lib/${pkgname}"
 
-	# before, our mistake we copied all
-	# now, just that we need specified in package.json
-	# plus ./mkinitcpio for manjaro
-	# NOTE: npm i "${pkgname}" -g
-	# this command will do the same and install eggs 
-	# under /usr/lib/node_modules/penguins-eggs/
+	# NOTE: pnpm i "${pkgname}" -g
+	# this command will do the same, but will use;
+	# /usr/lib/node_modules/penguins-eggs/
 
+	# before we copy all, now just that is 
+	# defined in files: [] on package.json
 	cp -r ./addons "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./assets "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./bin "${pkgdir}/usr/lib/${pkgname}/"
