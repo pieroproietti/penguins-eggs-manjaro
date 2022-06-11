@@ -17,8 +17,7 @@ in package.json:
         "/lib",
         "/manpages",
         "/oclif.manifest.json",
-        "/scripts",
-        "/templates"
+        "/scripts"
     ],
 ```
 
@@ -74,3 +73,13 @@ I'm getting a lot of dependencies, particulary surprised from snapd, and at the 
 * mtools-1:4.0.39-1
 * nodejs-18.2.0-1
 * syslinux-6.04.pre2.r11.gbf6db5b4-3
+
+# analyze depends
+use:
+```
+pacman -Sii manjaro-tools-iso-git | grep 'Depends On'
+```
+or:
+```
+pactree manjaro-tools-iso-git
+```
