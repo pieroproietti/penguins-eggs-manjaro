@@ -70,6 +70,10 @@ package() {
 	install -d "${pkgdir}/usr/share/bash-completion/completions"
 	ln -s /usr/lib/${pkgname}/scripts/eggs.bash "${pkgdir}/usr/share/bash-completion/completions/"
 
+	# Symlink zsh completions
+	install -d "${pkgdir}/usr/share/zsh/functions/Completion/Zsh/"
+	ln -s /usr/lib/${pkgname}/scripts/_eggs "${pkgdir}/usr/share/zsh/functions/Completion/Zsh/"
+
 	# Symlink man page
 	install -d "${pkgdir}/usr/share/man/man1"
 	ln -s "/usr/lib/${pkgname}/manpages/doc/man/eggs.roll.gz" "$pkgdir/usr/share/man/man1/eggs.1.gz"
