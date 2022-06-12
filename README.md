@@ -29,8 +29,8 @@ I'm not expert at all in manjaro, so I have a bit difficult to understand "the w
 Copy and paste follow instructions:
 
 ```
-mkdir penguins-eggs
-cd penguins-eggs
+mkdir try-penguins-eggs
+cd try-penguins-eggs
 wget https://raw.githubusercontent.com/pieroproietti/penguins-eggs-manjaro/main/PKGBUILD
 makepkg -si
 ```
