@@ -12,7 +12,8 @@ arch=('x86_64')
 url="https://penguins-eggs.net"
 license=('GPL2')
 # I see here something who bring 
-depends=('arch-install-scripts' 'erofs-utils' 'manjaro-tools-iso' 'mtools' 'nodejs' 'npm' 'python' 'syslinux' 'xdg-utils')
+# depends=('arch-install-scripts' 'erofs-utils' 'manjaro-tools-iso' 'mtools' 'nodejs' 'npm' 'python' 'syslinux' 'xdg-utils')
+depends=('arch-install-scripts' 'erofs-utils' 'libisoburn' 'mtools' 'nodejs' 'npm' 'python' 'syslinux' 'xdg-utils')
 makedepends=('git' 'pnpm')
 
 # There is a way makepkg -si ask to install them? 
