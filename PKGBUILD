@@ -4,19 +4,18 @@
 pkgname=penguins-eggs
 pkgver=9.1.30
 pkgrel=1
-#_commit='1a821b62f5e4968fb8da8d13fe100426df1ef27c' # working old calamares definition
 _commit='adb85ffab7e1eff1744083713916daf5f00228a6'
 
-pkgdesc="Console utility to remaster your system and redsistribute it and more."
+pkgdesc="Console utility to remaster your system and redistribute it and more."
 arch=('x86_64')
 url="https://penguins-eggs.net"
 license=('GPL2')
 
-# dependencies with manjaro-tools-iso
-depends=('arch-install-scripts' 'erofs-utils' 'manjaro-tools-iso' 'mtools' 'nodejs' 'npm' 'python' 'syslinux' 'xdg-utils')
+# dependencies with manjaro-tools-iso, It work, but brings a lot of stuffs
+# depends=('arch-install-scripts' 'erofs-utils' 'manjaro-tools-iso' 'mtools' 'nodejs' 'npm' 'python' 'syslinux' 'xdg-utils')
 
 # cleaning dependencies, it work too, read README
-# depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'findutils' 'gzip' 'libarchive' 'libisoburn' 'mtools' 'nodejs' 'openssl' 'pacman' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
+depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'findutils' 'gzip' 'libarchive' 'libisoburn' 'mtools' 'nodejs' 'openssl' 'pacman' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
 makedepends=('git' 'pnpm')
 
 # There is a way makepkg -si ask to install them? 
@@ -82,5 +81,3 @@ package() {
 	install -d "${pkgdir}/usr/share/man/man1"
 	ln -s "/usr/lib/${pkgname}/manpages/doc/man/eggs.roll.gz" "$pkgdir/usr/share/man/man1/eggs.1.gz"
 }
-
-
