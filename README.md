@@ -40,7 +40,7 @@ Copy and paste follow instructions:
 mkdir try-penguins-eggs
 cd try-penguins-eggs
 wget https://raw.githubusercontent.com/pieroproietti/penguins-eggs-manjaro/main/PKGBUILD
-makepkg --srcCi
+makepkg -srcCi
 
 ```
 
