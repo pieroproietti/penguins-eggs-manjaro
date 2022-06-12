@@ -33,7 +33,12 @@ mkdir try-penguins-eggs
 cd try-penguins-eggs
 wget https://raw.githubusercontent.com/pieroproietti/penguins-eggs-manjaro/main/PKGBUILD
 makepkg -si
+
 ```
+
+Usando ```makepkg -srcCi ``` ti installa quello che manca per fare il pacchetto, rimuove tutte le dipendenze usate solo per la costruzione e pulisce la cache del pacchetto ..
+
+
 
 Or: create a directory - for example ```try-penguins-eggs``` - and just download the PKGBUILD from [penguins-eggs PKBUID](https://raw.githubusercontent.com/pieroproietti/penguins-eggs-manjaro/main/PKGBUILD) with your browser. After that ```cd  try-penguins-eggs```, finally: ```makepkg -si```
 
@@ -83,3 +88,25 @@ or:
 ```
 pactree manjaro-tools-iso-git
 ```
+
+# From manjaro-toos-iso we need just miso
+
+```
+==> ERROR: Hook 'miso_shutdown' cannot be found
+==> ERROR: Hook 'miso' cannot be found
+==> ERROR: Hook 'miso_loop_mnt' cannot be found
+==> ERROR: Hook 'miso_kms' cannot be found
+```
+
+## how find them?
+
+Of course whe can fing on [manjaro-tools](https://gitlab.manjaro.org/tools/development-tools/manjaro-tools), they live in /usr/lib/inipcpio
+
+wget https://gitlab.manjaro.org/tools/development-tools/manjaro-tools/-/raw/master/initcpio/hooks/miso 
+wget https://gitlab.manjaro.org/tools/development-tools/manjaro-tools/-/raw/master/initcpio/hooks/miso_shutdown
+wget https://gitlab.manjaro.org/tools/development-tools/manjaro-tools/-/raw/master/initcpio/hooks/miso_loop_mnt
+#wget https://gitlab.manjaro.org/tools/development-tools/manjaro-tools/-/raw/master/initcpio/hooks/miso_kms
+mv miso* /usr/lib/initcpio/hooks
+
+
+
