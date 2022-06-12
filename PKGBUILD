@@ -11,9 +11,12 @@ pkgdesc="Console utility to remaster your system and redsistribute it and more."
 arch=('x86_64')
 url="https://penguins-eggs.net"
 license=('GPL2')
-# I see here something who bring 
-# depends=('arch-install-scripts' 'erofs-utils' 'manjaro-tools-iso' 'mtools' 'nodejs' 'npm' 'python' 'syslinux' 'xdg-utils')
-depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'findutils' 'gzip' 'libarchive' 'libisoburn' 'mtools' 'nodejs' 'openssl' 'pacman' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
+
+# dependencies with manjaro-tools-iso
+depends=('arch-install-scripts' 'erofs-utils' 'manjaro-tools-iso' 'mtools' 'nodejs' 'npm' 'python' 'syslinux' 'xdg-utils')
+
+# cleaning dependencies, it work too, read README
+# depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'findutils' 'gzip' 'libarchive' 'libisoburn' 'mtools' 'nodejs' 'openssl' 'pacman' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
 makedepends=('git' 'pnpm')
 
 # There is a way makepkg -si ask to install them? 

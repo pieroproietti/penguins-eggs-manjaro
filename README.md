@@ -3,30 +3,23 @@
 This is a fork of [penguins-eggs PKGBUILD](https://gitlab.manjaro.org/packages/community/penguins-eggs), created from the author 
 to investigate about the problems of the package eggs on manjaro.
 
-Before - my mistake - we copy the entire sources on /usr/lib/penguins-eggs, when we need to copy just files specified
-in package.json:
+# build and install
+
 
 ```
-...
+pamac update
+pamac upgrade
+```
+If your are with bash, I succest to install bash-completion, really usefull.
 
- "files": [
-        "/assets",
-        "/addons",
-        "/bin",
-        "/conf",
-        "/lib",
-        "/manpages",
-        "/oclif.manifest.json",
-        "/scripts"
-    ],
+```
+pamac install bash-completion
 ```
 
-I'm not expert at all in manjaro, so I have a bit difficult to understand "the way", with time I hope to learn a bit.
-
-
-# build and install (users)
+## Installing penguins-eggs
 
 Copy and paste follow instructions:
+
 
 ```
 mkdir try-penguins-eggs
@@ -79,8 +72,7 @@ I'm getting a lot of dependencies, particulary surprised from snapd, and at the 
 * nodejs-18.2.0-1
 * syslinux-6.04.pre2.r11.gbf6db5b4-3
 
-# analyze depends
-use:
+To analyze depends, we can use:
 ```
 pacman -Sii manjaro-tools-iso-git | grep 'Depends On'
 ```
@@ -89,7 +81,11 @@ or:
 pactree manjaro-tools-iso-git
 ```
 
-# From manjaro-toos-iso we need just miso
+# Trying to remove manjaro-tools-iso from dependencies
+
+We use very little from manjaro-tools-iso, so I'm trying to remove it from dependencies.
+
+Mostly we need hooks for mkinitcpio, I'm getting this error:
 
 ```
 ==> ERROR: Hook 'miso_shutdown' cannot be found
@@ -98,15 +94,46 @@ pactree manjaro-tools-iso-git
 ==> ERROR: Hook 'miso_kms' cannot be found
 ```
 
-## how find them?
+## how to fix it?
 
-Of course whe can fing on [manjaro-tools](https://gitlab.manjaro.org/tools/development-tools/manjaro-tools), they live in /usr/lib/inipcpio
+We can find them on [manjaro-tools](https://gitlab.manjaro.org/tools/development-tools/manjaro-tools).
+under /usr/lib/inipcpio
 
-wget https://gitlab.manjaro.org/tools/development-tools/manjaro-tools/-/raw/master/initcpio/hooks/miso 
-wget https://gitlab.manjaro.org/tools/development-tools/manjaro-tools/-/raw/master/initcpio/hooks/miso_shutdown
-wget https://gitlab.manjaro.org/tools/development-tools/manjaro-tools/-/raw/master/initcpio/hooks/miso_loop_mnt
-#wget https://gitlab.manjaro.org/tools/development-tools/manjaro-tools/-/raw/master/initcpio/hooks/miso_kms
-mv miso* /usr/lib/initcpio/hooks
+It's neccessary to copy manjaro-tools/initcpio
+```
+sudo cp manjaro-tools/initcpio/ /usr/lib -R
+```
+
+We need too /etc/initcpio/miso_shutdown.
+I don't removember it from where come, I just copied it inside this repo
+
+```
+cp miso_shutdown /etc/initcpio
+```
+
+It seem to work!
+
+
+# Old stuffs
+Before - my mistake - we copy the entire sources on /usr/lib/penguins-eggs, when we need to copy just files specified
+in package.json:
+
+```
+...
+
+ "files": [
+        "/assets",
+        "/addons",
+        "/bin",
+        "/conf",
+        "/lib",
+        "/manpages",
+        "/oclif.manifest.json",
+        "/scripts"
+    ],
+```
+
+I'm not expert at all in manjaro, so I have a bit difficult to understand "the way", with time I hope to learn a bit.
 
 
 
