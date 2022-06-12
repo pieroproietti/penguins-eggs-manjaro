@@ -5,47 +5,46 @@ to investigate about the problems of the package eggs on manjaro.
 
 # build and install
 
-
 ```
 pamac update
-pamac upgrade
 ```
-If your are with bash, I succest to install bash-completion, really usefull.
+If your are with bash, I succest to install bash-completion, really usefull with CLI tools like eggs.
 
 ```
 pamac install bash-completion
 ```
 
-## Installing penguins-eggs
+## Installing
+
+### manjaro-tools-iso 
+
+To not depend from manjaro-tools-iso, who bring a lot of stuffs not necessary for eggs, we need:
+
+* copy [initcpio stuffs](https://gitlab.manjaro.org/tools/development-tools/manjaro-tools/-/tree/master/initcpio/hooks) from [manjaro-tools](https://gitlab.manjaro.org/tools/development-tools/manjaro-tools) to /usr/lib/initcpio/hooks
+* copy manjaro-tools/initcpio/script/miso_shutdown in /etc/initcpio/ 
+
+We don't need all manjaro-tools-iso stuffs, just the necessary to build .
 
 Copy and paste follow instructions:
+```
+git clone https://gitlab.manjaro.org/tools/development-tools/manjaro-tools
+sudo cp manjaro-tools/initcpio/hooks/ /usr/lib/initcpio/ -R
+sudo cp manjaro-tools/initcpio/script/miso_shutdown /etc/initcpio/
+```
 
+### penguins-eggs
+
+Copy and paste follow instructions:
 
 ```
 mkdir try-penguins-eggs
 cd try-penguins-eggs
 wget https://raw.githubusercontent.com/pieroproietti/penguins-eggs-manjaro/main/PKGBUILD
-makepkg -si
+makepkg --srcCi
 
 ```
 
-Usando ```makepkg -srcCi ``` ti installa quello che manca per fare il pacchetto, rimuove tutte le dipendenze usate solo per la costruzione e pulisce la cache del pacchetto ..
-
-
-
-Or: create a directory - for example ```try-penguins-eggs``` - and just download the PKGBUILD from [penguins-eggs PKBUID](https://raw.githubusercontent.com/pieroproietti/penguins-eggs-manjaro/main/PKGBUILD) with your browser. After that ```cd  try-penguins-eggs```, finally: ```makepkg -si```
-
-
-# New release (memo for me)
-To create a new release, just edit followig lines in PKBUILD, essentiallt pkgver and _commit.
-
-```
-pkgver=9.1.29
-pkgrel=1
-_commit='29f20ce50a8fcdb855a70a40603a7c8b40163421'
-```
-
-# Dependencies problem
+# Dependencies problem includind manjaro-tools-iso in dependencies
 
 I'm getting a lot of dependencies, particulary surprised from snapd, and at the moment I don't understand why.
 
@@ -81,59 +80,12 @@ or:
 pactree manjaro-tools-iso-git
 ```
 
-# Trying to remove manjaro-tools-iso from dependencies
 
-We use very little from manjaro-tools-iso, so I'm trying to remove it from dependencies.
-
-Mostly we need hooks for mkinitcpio, I'm getting this error:
+# Hot to create a new release (memo for me)
+To create a new release, just edit followig lines in PKBUILD, essentiallt pkgver and _commit.
 
 ```
-==> ERROR: Hook 'miso_shutdown' cannot be found
-==> ERROR: Hook 'miso' cannot be found
-==> ERROR: Hook 'miso_loop_mnt' cannot be found
-==> ERROR: Hook 'miso_kms' cannot be found
+pkgver=9.1.29
+pkgrel=1
+_commit='29f20ce50a8fcdb855a70a40603a7c8b40163421'
 ```
-
-## how to fix it?
-
-We can find them on [manjaro-tools](https://gitlab.manjaro.org/tools/development-tools/manjaro-tools).
-under /usr/lib/inipcpio
-
-It's neccessary to copy manjaro-tools/initcpio
-```
-sudo cp manjaro-tools/initcpio/ /usr/lib -R
-```
-
-We need too /etc/initcpio/miso_shutdown.
-I don't removember it from where come, I just copied it inside this repo
-
-```
-cp miso_shutdown /etc/initcpio
-```
-
-It seem to work!
-
-
-# Old stuffs
-Before - my mistake - we copy the entire sources on /usr/lib/penguins-eggs, when we need to copy just files specified
-in package.json:
-
-```
-...
-
- "files": [
-        "/assets",
-        "/addons",
-        "/bin",
-        "/conf",
-        "/lib",
-        "/manpages",
-        "/oclif.manifest.json",
-        "/scripts"
-    ],
-```
-
-I'm not expert at all in manjaro, so I have a bit difficult to understand "the way", with time I hope to learn a bit.
-
-
-
