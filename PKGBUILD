@@ -4,7 +4,7 @@
 pkgname=penguins-eggs
 pkgver=9.1.30
 pkgrel=1
-_commit='339e0fe0a65f1f1b3861c604f314e59f6b50b8bf'
+_commit='7bbffb50907b9f3d4d5f8760989f1e502c14205a'
 
 pkgdesc="Console utility to remaster your system and redistribute it and more."
 arch=('x86_64')
