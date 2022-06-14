@@ -1,39 +1,11 @@
-# This is a default template for a post-install scriptlet.
-# Uncomment only required functions and remove any functions
-# you don't need (and this header).
-
-## arg 1:  the new package version
-#pre_install() {
-	# do something here
-#}
-
 ## arg 1:  the new package version
 post_install() {
-	# eggs calamares --install
 	eggs dad -d
 }
 
-## arg 1:  the new package version
-## arg 2:  the old package version
-#pre_upgrade() {
-	# do something here
-#}
-
-## arg 1:  the new package version
-## arg 2:  the old package version
-#post_upgrade() {
-	# do something here
-#}
-
-## arg 1:  the old package version
-#pre_remove() {
-	# do something here
-#}
-
 ## arg 1:  the old package version
 post_remove() {
-
-	# remove applications links
+	#################################################################### remove applications links
 	rm -f /usr/share/applications/eggs-adapt.desktop
 	rm -f /usr/share/applications/eggs-ichoice.desktop
 	rm -f /usr/share/applications/eggs-pve.desktop
@@ -41,19 +13,11 @@ post_remove() {
 	rm -f /usr/share/applications/install-debian.desktop
 	rm -f /usr/share/applications/penguins-clinstaller.desktop
 	rm -f /usr/share/applications/penguins-eggs.desktop
-
-	# remove xdg links
+	#################################################################### remove xdg links
 	rm -f /etc/xdg/autostart/add-penguins-desktop-icons.desktop
 	rm -f /etc/xdg/autostart/add-penguins-links.desktop
-
-	# remove pve-stuffs
-	# rm -f /usr/bin/pve-live.sh
-	# rm -f /etc/systemd/system/pve-live.service
-
-	# remove eggs configuration /etc/penguins-eggs.d
+	#################################################################### remove eggs configuration /etc/penguins-eggs.d
 	rm -rf /etc/penguins-eggs.d
-
-	# remove eggs exclude list
+	#################################################################### remove eggs exclude list
 	rm -rf /usr/local/share/penguins-eggs/
 }
-
