@@ -4,7 +4,7 @@
 pkgname=penguins-eggs
 pkgver=9.1.31
 pkgrel=1 
-_commit='1de6f0dbdee03d44746403b85f2c30d80a6fabd4' # network excluded in krill (we must write a manjaro version)
+_commit='237601410903c5b08ac97642912ad16c5c317a1d' # locales now krill with a lot errors, but install on manjaro!!!
 
 pkgdesc="Console utility to remaster your system and redistribute it and more."
 arch=('x86_64')
