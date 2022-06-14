@@ -4,7 +4,7 @@
 pkgname=penguins-eggs
 pkgver=9.1.31
 pkgrel=1 
-_commit='d8a6d44f4068089137e48262104bb6918a51c1c7'
+_commit='78c76a1ec05066297305112b7b3b4dddc11aebcc' // added penguins-eggs remove in calamares package.conf, the system is istalled as original
 
 pkgdesc="Console utility to remaster your system and redistribute it and more."
 arch=('x86_64')
