@@ -4,7 +4,7 @@
 pkgname=penguins-eggs
 pkgver=9.1.31
 pkgrel=1 
-_commit='a581d6d8a6fbd40cde8accc44c2296163905bd2a' # added check live per manjaro naked
+_commit='1de6f0dbdee03d44746403b85f2c30d80a6fabd4' # network excluded in krill (we must write a manjaro version)
 
 pkgdesc="Console utility to remaster your system and redistribute it and more."
 arch=('x86_64')
