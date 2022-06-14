@@ -26,6 +26,8 @@ options=('!strip')
 source=("git+https://github.com/pieroproietti/penguins-eggs.git#commit=${_commit}")
 sha256sums=('SKIP')
 
+install=$pkgname.install
+
 pkgver() {
 	cd ${srcdir}/${pkgname}
 	grep 'version' package.json | awk 'NR==1 {print $2 }' | awk -F '"' '{print $2}'

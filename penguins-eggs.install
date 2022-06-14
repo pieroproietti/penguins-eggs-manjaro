@@ -32,6 +32,28 @@ post_install() {
 
 ## arg 1:  the old package version
 post_remove() {
+
+	# remove applications links
+	rm -f /usr/share/applications/eggs-adapt.desktop
+	rm -f /usr/share/applications/eggs-ichoice.desktop
+	rm -f /usr/share/applications/eggs-pve.desktop
+	rm -f /usr/share/applications/eggs-rsupport.desktop
+	rm -f /usr/share/applications/install-debian.desktop
+	rm -f /usr/share/applications/penguins-clinstaller.desktop
+	rm -f /usr/share/applications/penguins-eggs.desktop
+
+	# remove xdg links
+	rm -f /etc/xdg/autostart/add-penguins-desktop-icons.desktop
+	rm -f /etc/xdg/autostart/add-penguins-links.desktop
+
+	# remove pve-stuffs
+	# rm -f /usr/bin/pve-live.sh
+	# rm -f /etc/systemd/system/pve-live.service
+
+	# remove eggs configuration /etc/penguins-eggs.d
 	rm -rf /etc/penguins-eggs.d
-	# do something here
+
+	# remove eggs exclude list
+	rm -rf /usr/local/share/penguins-eggs/
+
 #}
