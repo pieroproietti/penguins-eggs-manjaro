@@ -9,7 +9,7 @@
 
 ## arg 1:  the new package version
 post_install() {
-	eggs calamares --install
+	# eggs calamares --install
 	eggs dad -d
 }
 
