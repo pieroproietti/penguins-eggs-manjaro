@@ -56,4 +56,5 @@ post_remove() {
 	# remove eggs exclude list
 	rm -rf /usr/local/share/penguins-eggs/
 
-#}
+}
+
