@@ -4,7 +4,7 @@
 pkgname=penguins-eggs
 pkgver=9.1.31
 pkgrel=1 
-_commit='78c76a1ec05066297305112b7b3b4dddc11aebcc' # added penguins-eggs remove in calamares package.conf, the system is istalled as original
+_commit='a581d6d8a6fbd40cde8accc44c2296163905bd2a' # added check live per manjaro naked
 
 pkgdesc="Console utility to remaster your system and redistribute it and more."
 arch=('x86_64')
