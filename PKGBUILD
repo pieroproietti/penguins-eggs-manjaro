@@ -5,6 +5,7 @@ pkgname=penguins-eggs
 pkgver=9.1.31
 pkgrel=1 
 _commit='237601410903c5b08ac97642912ad16c5c317a1d' # locales now krill with a lot errors, but install on manjaro!!!
+_commit='817bb11842729b3551e60c7124d56f4f4ffa3119' # restructured bootloaderConfig in krill
 
 pkgdesc="Console utility to remaster your system and redistribute it and more."
 arch=('x86_64')
