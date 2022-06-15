@@ -6,6 +6,7 @@ pkgver=9.1.31
 pkgrel=1 
 _commit='237601410903c5b08ac97642912ad16c5c317a1d' # locales now krill with a lot errors, but install on manjaro!!!
 _commit='817bb11842729b3551e60c7124d56f4f4ffa3119' # restructured bootloaderConfig in krill
+_commit='3b6a02aa47c6c4c46214f0666c55fc841434ab04' # tryind to reinstall naked
 
 pkgdesc="Console utility to remaster your system and redistribute it and more."
 arch=('x86_64')
@@ -16,7 +17,7 @@ license=('GPL2')
 # depends=('arch-install-scripts' 'erofs-utils' 'manjaro-tools-iso' 'mtools' 'nodejs' 'npm' 'python' 'syslinux' 'xdg-utils')
 
 # cleaning dependencies, it work too, read README
-depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'findutils' 'gzip' 'libarchive' 'libisoburn' 'mtools' 'nodejs' 'openssl' 'pacman' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
+depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'findutils' 'gzip' 'libarchive' 'libisoburn' 'lvm2' 'mtools' 'nodejs' 'openssl' 'pacman' 'parted' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
 makedepends=('git' 'pnpm')
 
 # There is a way makepkg -si ask to install them? 
