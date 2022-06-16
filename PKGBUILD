@@ -4,7 +4,7 @@
 pkgname=penguins-eggs
 pkgver=9.1.31
 pkgrel=1 
-_commit='128acf836944ad8ee0e6ea2b3f0751edef213228' # mkinitcpio manjaro krill install
+_commit='07277919c4137a701d73ca170d9f09fdceb036f3' # removed boks_drm
 
 
 pkgdesc="Console utility to remaster and install your system."
