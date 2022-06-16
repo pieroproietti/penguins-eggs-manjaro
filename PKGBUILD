@@ -4,10 +4,10 @@
 pkgname=penguins-eggs
 pkgver=9.1.31
 pkgrel=1 
-_commit='e5e3831f50e7e67cb6eaa18927e4c99342435f2b' # mkinitcpio manjaro work
+_commit='d9a78768d29bf956ec04100b5c000e2969801cf1' # mkinitcpio manjaro again...
 
 
-pkgdesc="Console utility to remaster your system and redistribute it and more."
+pkgdesc="Console utility to remaster and install your system."
 arch=('x86_64')
 url="https://penguins-eggs.net"
 license=('GPL2')
