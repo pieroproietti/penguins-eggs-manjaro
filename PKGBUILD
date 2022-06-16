@@ -7,7 +7,7 @@ pkgrel=1
 _commit='237601410903c5b08ac97642912ad16c5c317a1d' # locales now krill with a lot errors, but install on manjaro!!!
 _commit='817bb11842729b3551e60c7124d56f4f4ffa3119' # restructured bootloaderConfig in krill
 _commit='3b6a02aa47c6c4c46214f0666c55fc841434ab04' # tryind to reinstall naked
-_commit='d2b5abcdf2f0a644ecd4f1491490f937f80e65dd' # adding wheel to user installing by krill in manjaro
+_commit='d2b5abcdf2f0a644ecd4f1491490f937f80e65dd' # adding wheel to user installing by krill in manjaror
 
 pkgdesc="Console utility to remaster your system and redistribute it and more."
 arch=('x86_64')
