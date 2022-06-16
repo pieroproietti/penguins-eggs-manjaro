@@ -4,8 +4,7 @@
 pkgname=penguins-eggs
 pkgver=9.1.31
 pkgrel=1 
-_commit='07277919c4137a701d73ca170d9f09fdceb036f3' # removed boks_drm
-
+_commit='5d0656af89fb4ddc9b9ec12d71d97d31acb92794' # removed boks_drm autocomplete 
 
 pkgdesc="Console utility to remaster and install your system."
 arch=('x86_64')
