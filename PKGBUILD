@@ -4,7 +4,7 @@
 pkgname=penguins-eggs
 pkgver=9.1.31
 pkgrel=1 
-_commit='be07db7710d5bf5378a43d0532d4d09ae25c9138' # mkinitcpio manjaro krill install
+_commit='128acf836944ad8ee0e6ea2b3f0751edef213228' # mkinitcpio manjaro krill install
 
 
 pkgdesc="Console utility to remaster and install your system."
