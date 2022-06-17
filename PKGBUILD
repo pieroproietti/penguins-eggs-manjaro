@@ -1,58 +1,41 @@
-# Maintainer: Stefano Capitani <stefano_at_manjaro_org>
-
-
+# Maintainer: Stefano Capitani <stefano_at_manjaro_org> Piero Proietti <piero.proietti_at_gmail.com>
 pkgname=penguins-eggs
-pkgver=9.1.31
-pkgrel=1 
-_commit='5d0656af89fb4ddc9b9ec12d71d97d31acb92794' # removed boks_drm autocomplete 
-
-pkgdesc="Console utility to remaster and install your system."
-arch=('x86_64')
-url="https://penguins-eggs.net"
+pkgver=9.1.31 # si autoaggiorna
+pkgrel=1
+_BRANCH=master
+pkgdesc="Console utility remaster and reinstall your system."
+arch=('any')
+url='https://github.com/pieroproietti/penguins-eggs'
 license=('GPL2')
-
-# dependencies with manjaro-tools-iso, It work, but brings a lot of stuffs
-# depends=('arch-install-scripts' 'erofs-utils' 'manjaro-tools-iso' 'mtools' 'nodejs' 'npm' 'python' 'syslinux' 'xdg-utils')
-
-# cleaning dependencies, it work too, read README
-depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'findutils' 'gzip' 'libarchive' 'libisoburn' 'lvm2' 'mtools' 'nodejs' 'openssl' 'pacman' 'parted' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
+depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'findutils' 
+		 'gzip' 'libarchive' 'libisoburn' 'lvm2' 'mtools' 'nodejs' 'openssl' 'pacman' 
+		 'parted' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
 makedepends=('git' 'pnpm')
-
-# There is a way makepkg -si ask to install them? 
-optdepends=('bash-completion' 'calamares' )
-conflicts=('penguins-eggs-dev')
-replaces=('penguins-eggs-dev')
-options=('!strip')
-source=("git+https://github.com/pieroproietti/penguins-eggs.git#commit=${_commit}")
+optdepends=('bash-completion: eggs completition'
+			'calamares: GUI installer' )
+source=("git+${url}.git#branch=${_BRANCH}")
 sha256sums=('SKIP')
-
 install=$pkgname.install
+options=('!strip') # rimozioni varie, ma prende tempo...
 
+# pkgver
 pkgver() {
 	cd ${srcdir}/${pkgname}
 	grep 'version' package.json | awk 'NR==1 {print $2 }' | awk -F '"' '{print $2}'
 }
 
+# build 
 build() {
 	cd ${srcdir}/${pkgname}
-
-	# Install dependency modules
 	pnpm i
 	pnpm run build
 }
 
+# package
 package() {
-	cd ${srcdir}/${pkgname}
-
-	# Copy the app files & dependency modules to package directory
 	install -d "${pkgdir}/usr/lib/${pkgname}"
 
-	# NOTE: pnpm i "${pkgname}" -g
-	# this command will do the same, but will use;
-	# /usr/lib/node_modules/penguins-eggs/
-
-	# before we copy all, now just that is 
-	# defined in files: [] on package.json
+	cd ${srcdir}/${pkgname}
 	cp -r ./addons "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./assets "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./bin "${pkgdir}/usr/lib/${pkgname}/"
