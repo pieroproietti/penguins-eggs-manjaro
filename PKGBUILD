@@ -11,11 +11,11 @@ depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'fi
 		 'gzip' 'libarchive' 'libisoburn' 'lvm2' 'mtools' 'nodejs' 'openssl' 'pacman' 
 		 'parted' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
 makedepends=('git' 'pnpm')
-optdepends=('bash-completion: eggs completition'
+optdepends=('bash-completion: type eggs commands more quickly'
 			'calamares: GUI installer' )
 source=("git+${url}.git#branch=${_BRANCH}")
 sha256sums=('SKIP')
-install=$pkgname.install
+#install=$pkgname.install
 options=('!strip') # rimozioni varie, ma prende tempo...
 
 # pkgver
@@ -66,3 +66,32 @@ package() {
 	install -d "${pkgdir}/usr/share/man/man1"
 	ln -s "/usr/lib/${pkgname}/manpages/doc/man/eggs.roll.gz" "$pkgdir/usr/share/man/man1/eggs.1.gz"
 }
+
+# post install arg 1:  the new package version
+post_install() {
+	eggs dad -d
+}
+
+# post_remove arg 1:  the old package version
+post_remove() {
+	
+	# remove applications links
+	rm -f /usr/share/applications/eggs-adapt.desktop
+	rm -f /usr/share/applications/eggs-ichoice.desktop
+	rm -f /usr/share/applications/eggs-pve.desktop
+	rm -f /usr/share/applications/eggs-rsupport.desktop
+	rm -f /usr/share/applications/install-debian.desktop
+	rm -f /usr/share/applications/penguins-clinstaller.desktop
+	rm -f /usr/share/applications/penguins-eggs.desktop
+
+	# remove xdg links
+	rm -f /etc/xdg/autostart/add-penguins-desktop-icons.desktop
+	rm -f /etc/xdg/autostart/add-penguins-links.desktop
+
+	# remove eggs configuration /etc/penguins-eggs.d
+	rm -rf /etc/penguins-eggs.d
+	
+	# remove eggs exclude list
+	rm -rf /usr/local/share/penguins-eggs/
+}
+
