@@ -25,8 +25,8 @@ install=$pkgname.install
 _url_release="https://github.com/pieroproietti/penguins-eggs"
 _branch_release="master"
 _url_manjaro_tools="https://gitlab.manjaro.org/tools/development-tools/manjaro-tools"
-source=("git+${_url_release}.git#branch=${_branch_release}" 
-		"git+${_url_manjaro_tools}.git#branch=${_branch_release}") 
+source=("git+${_url_release}.git#branch=${_branch_release}")
+#  we need too: "git+${_url_manjaro_tools}.git#branch=${_branch_release}"
 # changelog
 # noextract
 # md5sums
