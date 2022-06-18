@@ -35,12 +35,23 @@ post_remove() {
 
 	# remove xdg links
 	rm -f /etc/xdg/autostart/add-penguins-desktop-icons.desktop
+
+	# remove add-penguins-links
 	rm -f /etc/xdg/autostart/add-penguins-links.desktop
 
-	# remove eggs configuration /etc/penguins-eggs.d
+	# remove eggs configuration
 	rm -rf /etc/penguins-eggs.d
 	
 	# remove eggs exclude list
 	rm -rf /usr/local/share/penguins-eggs/
+
+	# remove bash-completion 
+	rm -f /usr/share/bash-completion/completions/eggs.bash
+
+	# remove zsh-completion 
+	rm -f /usr/share/zsh/functions/Completion/Zsh/_eggs
+
+	# remove man	
+	rm -f /usr/share/man/man1/eggs.1.gz
 }
 
