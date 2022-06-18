@@ -1,11 +1,12 @@
 # Maintainer: Stefano Capitani <stefano_at_manjaro_org> Piero Proietti <piero.proietti_at_gmail.com>
 pkgname=penguins-eggs
-pkgver=9.1.31 # si autoaggiorna
+pkgver=9.1.31 # autoupdate
 pkgrel=1
-_BRANCH=master
-pkgdesc="Console utility remaster and reinstall your system."
+_url_release="https://github.com/pieroproietti/penguins-eggs"
+_branch_release="master"
+pkgdesc="Console utility to remaster and reinstall your system."
 arch=('any')
-url='https://github.com/pieroproietti/penguins-eggs'
+url="https://penguins-eggs.net"
 license=('GPL2')
 depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'findutils' 
 		 'gzip' 'libarchive' 'libisoburn' 'lvm2' 'mtools' 'nodejs' 'openssl' 'pacman' 
@@ -13,9 +14,9 @@ depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'fi
 makedepends=('git' 'pnpm')
 optdepends=('bash-completion: type eggs commands more quickly'
 			'calamares: GUI installer' )
-source=("git+${url}.git#branch=${_BRANCH}")
+source=("git+${_url_release}.git#branch=${_branch_release}")
 sha256sums=('SKIP')
-#install=$pkgname.install
+install=$pkgname.install
 options=('!strip') # rimozioni varie, ma prende tempo...
 
 # pkgver
@@ -36,16 +37,19 @@ package() {
 	install -d "${pkgdir}/usr/lib/${pkgname}"
 
 	cd ${srcdir}/${pkgname}
+	install -Dm644 package.json -t "${pkgdir}/usr/lib/${pkgname}/"
+
+	# We need them on /usr/lib/ not in /opt
+	# I don't see problems. To change in /opt it's 
+	# will be possible too, but need changes of sources
 	cp -r ./addons "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./assets "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./bin "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./conf "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./lib "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./LICENSE "${pkgdir}/usr/lib/${pkgname}/"
-	cp -r ./manpages "${pkgdir}/usr/lib/${pkgname}/"
-	cp -r ./mkinitcpio "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./node_modules "${pkgdir}/usr/lib/${pkgname}/"
-	cp -r ./package.json "${pkgdir}/usr/lib/${pkgname}/"
+	cp -r ./mkinitcpio "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./pnpm-lock.yaml "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./README.md "${pkgdir}/usr/lib/${pkgname}/"
 	cp -r ./scripts "${pkgdir}/usr/lib/${pkgname}/"
@@ -54,44 +58,17 @@ package() {
 	install -d "${pkgdir}/usr/bin"
 	ln -s "/usr/lib/${pkgname}/bin/run" "${pkgdir}/usr/bin/eggs"
 
-	# Symlink bash completions
-	install -d "${pkgdir}/usr/share/bash-completion/completions"
-	ln -s /usr/lib/${pkgname}/scripts/eggs.bash "${pkgdir}/usr/share/bash-completion/completions/"
+	# bash completions
+	install -Dm644 "scripts/eggs.bash" "${pkgdir}/usr/share/bash-completion/completions"
 
-	# Symlink zsh completions
-	install -d "${pkgdir}/usr/share/zsh/functions/Completion/Zsh/"
-	ln -s /usr/lib/${pkgname}/scripts/_eggs "${pkgdir}/usr/share/zsh/functions/Completion/Zsh/"
+	# zsh completions
+	install -Dm644 "scripts/_eggs.bash" "${pkgdir}/usr/share/zsh/functions/Completion/Zsh/"
 
-	# Symlink man page
-	install -d "${pkgdir}/usr/share/man/man1"
-	ln -s "/usr/lib/${pkgname}/manpages/doc/man/eggs.roll.gz" "$pkgdir/usr/share/man/man1/eggs.1.gz"
-}
+	# man page
+	install -Dm644 manpages/doc/man/eggs.roll.gz "${pkgdir}/usr/share/man/man1/eggs.1.gz"
 
-# post install arg 1:  the new package version
-post_install() {
-	eggs dad -d
-}
-
-# post_remove arg 1:  the old package version
-post_remove() {
-	
-	# remove applications links
-	rm -f /usr/share/applications/eggs-adapt.desktop
-	rm -f /usr/share/applications/eggs-ichoice.desktop
-	rm -f /usr/share/applications/eggs-pve.desktop
-	rm -f /usr/share/applications/eggs-rsupport.desktop
-	rm -f /usr/share/applications/install-debian.desktop
-	rm -f /usr/share/applications/penguins-clinstaller.desktop
-	rm -f /usr/share/applications/penguins-eggs.desktop
-
-	# remove xdg links
-	rm -f /etc/xdg/autostart/add-penguins-desktop-icons.desktop
-	rm -f /etc/xdg/autostart/add-penguins-links.desktop
-
-	# remove eggs configuration /etc/penguins-eggs.d
-	rm -rf /etc/penguins-eggs.d
-	
-	# remove eggs exclude list
-	rm -rf /usr/local/share/penguins-eggs/
+	# desktop link and icon
+	install -Dm644 "assets/${pkgname}.desktop" -t "${pkgdir}/usr/share/applications/"
+	install -Dm644 assets/eggs.png -t "${pkgdir}/usr/share/pixmaps/"
 }
 

@@ -1,0 +1,45 @@
+# penguins-eggs: script pre/post install/upgrade/remove
+
+# pre_install() 
+# nothing to do!
+
+# post install
+post_install() {
+	eggs dad -d
+}
+
+# post_install() 
+# nothing to do!
+
+# pre_upgrade() 
+# nothing to do!
+
+# post_upgrade() 
+# nothing to do!
+
+# pre_remove() 
+# nothing to do!
+
+# post_remove arg 1:  the old package version
+post_remove() {
+	
+	# remove applications links
+	rm -f /usr/share/applications/eggs-adapt.desktop
+	rm -f /usr/share/applications/eggs-ichoice.desktop
+	rm -f /usr/share/applications/eggs-pve.desktop
+	rm -f /usr/share/applications/eggs-rsupport.desktop
+	rm -f /usr/share/applications/install-debian.desktop
+	rm -f /usr/share/applications/penguins-clinstaller.desktop
+	rm -f /usr/share/applications/penguins-eggs.desktop
+
+	# remove xdg links
+	rm -f /etc/xdg/autostart/add-penguins-desktop-icons.desktop
+	rm -f /etc/xdg/autostart/add-penguins-links.desktop
+
+	# remove eggs configuration /etc/penguins-eggs.d
+	rm -rf /etc/penguins-eggs.d
+	
+	# remove eggs exclude list
+	rm -rf /usr/local/share/penguins-eggs/
+}
+
