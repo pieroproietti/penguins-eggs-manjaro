@@ -2,22 +2,34 @@
 pkgname=penguins-eggs
 pkgver=9.1.31 # autoupdate
 pkgrel=1
-_url_release="https://github.com/pieroproietti/penguins-eggs"
-_branch_release="master"
+# pkgdir
+# pkgbase
 pkgdesc="Console utility to remaster and reinstall your system."
 arch=('any')
 url="https://penguins-eggs.net"
 license=('GPL2')
+# groups=
 depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'findutils' 
 		 'gzip' 'libarchive' 'libisoburn' 'lvm2' 'mtools' 'nodejs' 'openssl' 'pacman' 
 		 'parted' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
-makedepends=('git' 'pnpm')
 optdepends=('bash-completion: type eggs commands more quickly'
 			'calamares: GUI installer' )
-source=("git+${_url_release}.git#branch=${_branch_release}")
-sha256sums=('SKIP')
-install=$pkgname.install
+makedepends=('git' 'pnpm')
+# checkdepends
+# provides
+# conflicts
+# replaces
+# backup
 options=('!strip') # rimozioni varie, ma prende tempo...
+install=$pkgname.install
+_url_release="https://github.com/pieroproietti/penguins-eggs"
+_branch_release="master"
+source=("git+${_url_release}.git#branch=${_branch_release}")
+# changelog
+# noextract
+# md5sums
+# sha1sums
+sha256sums=('SKIP')
 
 # pkgver
 pkgver() {
