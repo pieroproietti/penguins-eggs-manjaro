@@ -10,8 +10,8 @@ url="https://penguins-eggs.net"
 license=('GPL2')
 # groups=
 depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'findutils' 
-		 'gzip' 'libarchive' 'libisoburn' 'lvm2' 'mtools' 'nodejs' 'openssl' 'pacman' 
-		 'parted' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
+		 'gzip' 'libarchive' 'libisoburn' 'lvm2' 'manjaro-tools-iso' 'mtools' 'nodejs' 
+		 'openssl' 'pacman' 'parted' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
 optdepends=('bash-completion: type eggs commands more quickly'
 			'calamares: GUI installer' )
 makedepends=('git' 'pnpm')
