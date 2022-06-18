@@ -1,7 +1,8 @@
-# penguins-eggs: script pre/post install/upgrade/remove
+# penguins-eggs.install
+# Maintainer: Stefano Capitani <stefano_at_manjaro_org> Piero Proietti <piero.proietti_at_gmail.com>
 
 # pre_install() 
-# nothing to do!
+# not used
 
 # post install
 post_install() {
@@ -9,16 +10,16 @@ post_install() {
 }
 
 # post_install() 
-# nothing to do!
+# not used
 
 # pre_upgrade() 
-# nothing to do!
+# not used
 
 # post_upgrade() 
-# nothing to do!
+# not used
 
 # pre_remove() 
-# nothing to do!
+# not used
 
 # post_remove arg 1:  the old package version
 post_remove() {
