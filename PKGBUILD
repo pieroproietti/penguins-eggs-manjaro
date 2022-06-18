@@ -59,16 +59,15 @@ package() {
 	ln -s "/usr/lib/${pkgname}/bin/run" "${pkgdir}/usr/bin/eggs"
 
 	# bash completions
-	install -Dm644 "${srcdir}/${pkgname}/scripts/eggs.bash" "${pkgdir}/usr/share/bash-completion/completions"
+	install -Dm644 "scripts/eggs.bash" "${pkgdir}/usr/share/bash-completion/completions"
 
 	# zsh completions
-	install -Dm644 "${srcdir}/${pkgname}/scripts/_eggs" "${pkgdir}/usr/share/zsh/functions/Completion/Zsh/"
+	install -Dm644 "scripts/_eggs.bash" "${pkgdir}/usr/share/zsh/functions/Completion/Zsh/"
 
 	# man page
-	install -Dm644 "${srcdir}/${pkgname}/manpages/doc/man/eggs.roll.gz" "${pkgdir}/usr/share/man/man1/eggs.1.gz"
+	install -Dm644 manpages/doc/man/eggs.roll.gz "${pkgdir}/usr/share/man/man1/eggs.1.gz"
 
 	# desktop link and icon
 	install -Dm644 "assets/${pkgname}.desktop" -t "${pkgdir}/usr/share/applications/"
 	install -Dm644 assets/eggs.png -t "${pkgdir}/usr/share/pixmaps/"
 }
-
