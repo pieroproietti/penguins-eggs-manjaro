@@ -13,7 +13,7 @@ depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'fi
 		 'gzip' 'libarchive' 'libisoburn' 'lvm2' 'manjaro-tools-iso' 'mtools' 'nodejs' 
 		 'openssl' 'pacman' 'parted' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
 optdepends=('bash-completion: type eggs commands more quickly'
-			'calamares: GUI installer' )
+			'calamares: system installer GUI' )
 makedepends=('git' 'pnpm')
 # checkdepends
 # provides
@@ -27,7 +27,7 @@ _branch_release="master"
 _url_manjaro_tools="https://gitlab.manjaro.org/tools/development-tools/manjaro-tools"
 source=("git+${_url_release}.git#branch=${_branch_release}")
 #  we need too: "git+${_url_manjaro_tools}.git#branch=${_branch_release}"
-# changelog
+changelog=changelog.md
 # noextract
 # md5sums
 # sha1sums
@@ -85,7 +85,9 @@ package() {
 	# man page
 	install -Dm644 manpages/doc/man/eggs.roll.gz "${pkgdir}/usr/share/man/man1/eggs.1.gz"
 
-	# desktop link and icon
+	# desktop link
 	install -Dm644 "assets/${pkgname}.desktop" -t "${pkgdir}/usr/share/applications/"
+
+	# icon
 	install -Dm644 assets/eggs.png -t "${pkgdir}/usr/share/pixmaps/"
 }
