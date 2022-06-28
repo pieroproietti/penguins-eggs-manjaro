@@ -23,6 +23,7 @@ makedepends=('git' 'pnpm')
 options=('!strip') # rimozioni varie, ma prende tempo...
 install=$pkgname.install
 _url_release="https://github.com/pieroproietti/penguins-eggs"
+#_branch_release="dev"
 _branch_release="master"
 _url_manjaro_tools="https://gitlab.manjaro.org/tools/development-tools/manjaro-tools"
 source=("git+${_url_release}.git#branch=${_branch_release}")
