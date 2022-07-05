@@ -1,6 +1,6 @@
 # Maintainer: Stefano Capitani <stefano_at_manjaro_org> Piero Proietti <piero.proietti_at_gmail.com>
 pkgname=penguins-eggs
-pkgver=9.1.32 # autoupdate
+pkgver=9.1.33 # autoupdate
 pkgrel=1
 # pkgdir
 # pkgbase
@@ -25,7 +25,7 @@ options=('!strip') # rimozioni varie, ma prende tempo...
 install=$pkgname.install
 _url_release="https://github.com/pieroproietti/penguins-eggs"
 _branch_release="master"
-#_branch_release="manjaro"
+#_branch_release="archlinux"
 _url_manjaro_tools="https://gitlab.manjaro.org/tools/development-tools/manjaro-tools"
 source=("git+${_url_release}.git#branch=${_branch_release}")
 #  we need too: "git+${_url_manjaro_tools}.git#branch=${_branch_release}"
