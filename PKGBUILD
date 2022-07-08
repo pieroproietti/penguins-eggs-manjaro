@@ -15,7 +15,7 @@ depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'fi
 		 'nodejs' 'openssl' 'pacman' 'parted' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
 optdepends=('bash-completion: type eggs commands more quickly'
 			'calamares: system installer GUI' )
-makedepends=('git' 'pnpm')
+makedepends=('git')
 # checkdepends
 # provides
 # conflicts
@@ -52,6 +52,8 @@ build() {
 
 # package
 package() {
+	npm i pnpm -g
+
 	install -d "${pkgdir}/usr/lib/${pkgname}"
 
 	cd ${srcdir}/${pkgname}
