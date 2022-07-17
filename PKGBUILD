@@ -12,10 +12,10 @@ license=('GPL2')
 # removed: 
 depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'findutils' 
 		 'glibc-locales' 'gzip' 'libarchive' 'libisoburn' 'lvm2' 'manjaro-tools-iso' 'mtools' 
-		 'nodejs' 'openssl' 'pacman' 'parted' 'pnpm' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
+		 'nodejs' 'openssl' 'pacman' 'parted' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
 optdepends=('bash-completion: type eggs commands more quickly'
 			'calamares: system installer GUI' )
-makedepends=('git')
+makedepends=('git' 'pnpm' )
 # checkdepends
 # provides
 # conflicts
