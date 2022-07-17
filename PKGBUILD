@@ -1,6 +1,6 @@
 # Maintainer: Stefano Capitani <stefano_at_manjaro_org> Piero Proietti <piero.proietti_at_gmail.com>
 pkgname=penguins-eggs
-pkgver=9.1.33 # autoupdate
+pkgver=9.1.35 # autoupdate
 pkgrel=1
 # pkgdir
 # pkgbase
@@ -12,7 +12,7 @@ license=('GPL2')
 # removed: 
 depends=('arch-install-scripts' 'awk' 'dosfstools' 'e2fsprogs' 'erofs-utils' 'findutils' 
 		 'glibc-locales' 'gzip' 'libarchive' 'libisoburn' 'lvm2' 'manjaro-tools-iso' 'mtools' 
-		 'nodejs' 'openssl' 'pacman' 'parted' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
+		 'nodejs' 'openssl' 'pacman' 'parted' 'pnpm' 'rsync' 'sed' 'syslinux' 'squashfs-tools')
 optdepends=('bash-completion: type eggs commands more quickly'
 			'calamares: system installer GUI' )
 makedepends=('git')
@@ -52,7 +52,7 @@ build() {
 
 # package
 package() {
-	npm i pnpm -g
+	# npm i pnpm -g
 
 	install -d "${pkgdir}/usr/lib/${pkgname}"
 
